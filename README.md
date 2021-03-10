@@ -29,16 +29,57 @@ Our experimental platform can be well installed on both Ubuntu 16.04 and 18.04, 
 
 Our framework has some packages and libraries as follows:
 - **ROS**(Kinetic @ Melodic). For melodic version, we also bulid some dependencies:  **ros-melodic-pid **, ** ros-melodic-joy **
--  **Python2.7** &  **Python3.6 **
--  **Gym
+-  **Python2.7** & **Python3.6**
+-  **Gym**
 -  **Virtualenv** (Due to ROS only supports Python2.x, however, multiagent reinforcement learning algorithms must be trained in Python3.x, so we build virtual environment.): so we need to build some dependencies:  **python-pip **, numpy, python-catkin-tools, python3-dev, python3-pip, python3-yaml. rospkg, catkin_pkg, geometry, geometry2, empy. 
--   **Tensorflow **
--   **Pytorch
--   **Keras
--   **Pandas
+-   **Tensorflow**
+-   **Pytorch**
+-   **Keras**
+-   **Pandas**
+-   **seaborn**
 
 
-# 
+# Code Structure
+- `./open_ai_gym_construct/gym_construct`: folder where some different kinds of taks scenarios were stored.
+- `./openai_ros`: folder where the core code of this framework were stored and users can set different MADRL environment(including: reward, state, action)
+   1) `./openai_ros/src/task_envs`: this folder mainly can be used to set different MADRL environment according to specific task.
+   2) `./openai_ros/src/robot_envs`: this folder mainly can be extended into diffrent kinds of robots combination supported ROS
+- `./turtle2_opeanai_ros_example`: this mainly contains of diffent algorithms,users can develop their desired algorithms in this folder.
+
+# Installation & How to use?
+There are two ways to install this framework:
+   1. using a virtual environment and pip
+   2. how to use through code structure
+
+## Virtualenv @ pip
+First download the **pip** Python package manager and create a virtual environment for Python.
+
+On Ubuntu, you can install **pip** and **virtualenv** by typing in the terminal:
+
+-In Python 3.6:
+```
+sudo apt install python3-pip
+sudo pip install virtualenv
+```
+You can then create the virtual environment by typing:
+
+```
+virtualenv -p /usr/bin/python3.6 <virtualenv_name>
+activate the virtual environment
+source <virtualenv_name>/bin/activate
+```
+To deactivate the virtual environment, just type:
+```
+deactivate
+```
+
+## How to use?
+
+
+
+
+
+
 
 
 
