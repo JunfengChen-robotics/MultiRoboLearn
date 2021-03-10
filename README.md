@@ -74,14 +74,31 @@ deactivate
 ```
 
 ## How to use?
+- Firstly, users can download the code by typing:
+```
+ git clone https://github.com/JunfengChen-robotics/MultiRoboLearn.git
+ ```
+ 
+- Secondly, users can make virtual enviroment through above command, just type:
 
+```
+cd ~/<virtualenv_name>/bin
+source activate
+```
 
+- Thirdly, users can load taks sceniaors through gazebo, by typing:
+```
+cd  ~/opeani_gym_construct/gym_construct
+roslaunch multiagent_main.launch
+```
 
+- Fourth, users can load algorthims to tranin, just type:
+```
+cd ~/turtlebotexample_ws/catkin_ws/src/turtle2_openai_ros_example
+roslaunch start_multiagent_training.launch
+```
 
+# Contributing
+- New task environments and new robots combination implementations are welcome!
+- If you encounter troubles running MultiRoboLearn or if you have questions please submit a new issue.
 
-
-
-
-
-# Liscence 
-MIT
