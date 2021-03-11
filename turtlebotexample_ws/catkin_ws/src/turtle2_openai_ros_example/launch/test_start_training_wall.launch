@@ -1,7 +1,0 @@
-<launch>
-    <!-- This version uses the openai_ros environments -->
-    <rosparam command="load" file="$(find turtle2_openai_ros_example)/config/test_turtlebot2_openai_qlearn_params_wall.yaml" />
-
-    <!-- Launch the training system -->
-    <node pkg="turtle2_openai_ros_example" name="test_turtlebot2_maze_qlearn" type="test_start_qlearning_wall.py" output="screen"/>
-</launch>
