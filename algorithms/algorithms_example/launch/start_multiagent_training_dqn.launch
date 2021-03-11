@@ -1,0 +1,7 @@
+<launch>
+    <!-- This version uses the openai_ros environments -->
+    <rosparam command="load" file="$(find turtle2_openai_ros_example)/config/multiagent_turtlebot2_qlearn_params.yaml" />
+
+    <!-- Launch the training system -->
+    <node pkg="turtle2_openai_ros_example" name="test_turtlebot2_multiagent_qlearn" type="agents_landmarks_multiagent.py" output="screen"/>
+</launch>

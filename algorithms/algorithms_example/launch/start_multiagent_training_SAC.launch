@@ -1,0 +1,7 @@
+<launch>
+    <!-- This version uses the openai_ros environments -->
+    <rosparam command="load" file="$(find turtle2_openai_ros_example)/config/continous_multiagent_spark_SAC_params_V1.yaml" />
+
+    <!-- Launch the training system -->
+    <node pkg="turtle2_openai_ros_example" name="test_turtlebot2_multiagent_SAC" type="sac_training_continous_V1.py" output="screen"/>
+</launch>

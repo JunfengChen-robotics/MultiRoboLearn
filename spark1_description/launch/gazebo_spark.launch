@@ -1,0 +1,45 @@
+<launch>
+
+    <!-- 设置launch文件的参数 -->
+    <!-- arg name="world_name" value="$(find gym_construct)/worlds/multiagent_6.world"/-->
+    <arg name="paused" default="true"/>
+    <arg name="use_sim_time" default="true"/>
+    <arg name="gui" default="true"/>
+    <arg name="headless" default="true"/>
+    <arg name="debug" default="false"/>
+    <arg name="model" default="$(find spark1_description)/urdf/spark1_description.urdf"/>
+
+    <!-- 运行gazebo仿真环境 -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <!--arg name="world_name" value="$(arg world_name)" /-->
+        <arg name="debug" value="$(arg debug)" />
+        <arg name="gui" value="$(arg gui)" />
+        <arg name="paused" value="$(arg paused)"/>
+        <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+        <arg name="headless" value="$(arg headless)"/>
+    </include>
+
+<!-- begin robot1 -->
+	<group ns="marobot1">
+    	<param name="robot_description" command="$(find xacro)/xacro.py $(arg model)  bodyframe:=marobot1 ns:=marobot1" />
+
+    	<!-- 运行joint_state_publisher节点，发布机器人的关节状态  -->
+    	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" ></node>
+
+    	<!-- 运行robot_state_publisher节点，发布tf  -->
+   		<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"  output="screen" >
+        <param name="publish_frequency" type="double" value="30.0" />
+	    <param name="tf_prefix" value="marobot1" />
+		</node>
+
+	<!-- node name="ares_teleop"       pkg="ares_teleop" type="ares_teleop.py"       output="screen" /-->
+
+    	<!-- 在gazebo中加载机器人模型-->
+    	<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+          	args="-unpause -urdf -model marobot1 -param robot_description -x 0.0 -y 0.0"/>
+
+        <node name="rviz" pkg="rviz" type="rviz" required="true" />
+
+	</group>
+
+</launch>

@@ -1,0 +1,95 @@
+turtlebot2: #namespace
+
+    running_step: 0.04 # amount of time the control will be executed  default = 0.04
+    pos_step: 0.01     # increment in position for each command 0.010
+    
+    #qlearn parameters
+#    alpha: 0.95
+#    gamma: 0.95
+#    epsilon: 1.0
+#    epsilon_discount: 0.95
+#    nepisodes: 15
+#    nsteps: 100
+#    number_splits: 10 #set to change the number of state splits for the continuous problem and also the number of env_variable splits
+
+    #DQN parameters
+    episode_number: 10000
+    learning_rate: 0.00001   #default lr = 0.00005
+    optimizer: 'RMSProp'
+    memory_capacity: 1000000
+    batch_size: 512
+    target_frequency: 5  #default 10000
+    maximum_exploration: 10000 #default 100000
+    first_step_memory: 0
+    replay_steps: 4
+    number_nodes: 2560   #default is 256
+    target_type: 'DQN'
+    memory: 'PER'
+    prioritization_scale: 0.5
+    gpu_num: '0'
+    max_timestep: 350
+    max_random_moves: 0
+    agents_number: 3
+
+
+    test: True
+    dueling: True
+#    running_step: 0.06 # Time for each step default = 0.06- 0.1- now:0.5
+    wait_time: 0.1 # Time to wait in the reset phases
+
+    n_actions: 3 # We have 5 actions, Forwards,TurnLeft,TurnRight,Backwards,stop
+    n_observations: 17 # We have 6 different observations default = 2166,2168 724
+
+    speed_step: 0.5 # Time to wait in the reset phases 1.0
+
+
+    linear_forward_speed: 0.15 # Spwwed for ging fowards   default = 0.25 - 0.35
+    linear_turn_speed: 0.1 # Lienare speed when turning default = 0.05 - 0.1
+    angular_speed: 0.2 # Angular speed when turning Left or Right 0.3
+    init_linear_forward_speed: 0.0 # Initial linear speed in which we start each episode
+    init_linear_turn_speed: 0.0 # Initial angular speed in shich we start each episode
+    
+    new_ranges: 5 # How many laser readings we jump in each observation reading, the bigger the less laser resolution
+    min_range: 0.2 # Minimum meters below wich we consider whether done  default = 0.1
+    max_laser_value: 5 # V/home/guoxiyue/Desktop/turtlebotexample_ws_single/catkin_ws/src/op/home/guoxiyue/Desktop/turtlebotexample_ws_single/catkin_ws/src/op/home/guoxiyue/Desktop/turtlebotexample_ws_single/catkin_ws/src/op/home/guoxiyue/Desktop/turtlebotexample_ws_single/catkin_ws/src/op/home/guoxiyue/Desktop/turtlebotexample_ws_single/catkin_ws/src/openai_examples_projects/turtle2_openai_ros_example/scriptsenai_examples_projects/turtle2_openai_ros_example/scriptsenai_examples_projects/turtle2_openai_ros_example/scriptsenai_examples_projects/turtle2_openai_ros_example/scriptsenai_examples_projects/turtle2_openai_ros_example/scriptsalue considered Ok, no wall
+    min_laser_value: 0.2 # Value considered there is an obstacle or crashed
+    
+
+    marobot1:
+        desired_pose: #namespace
+            x: 4.5
+            y: 0.5
+            z: 0.0
+
+    marobot2:
+        desired_pose: #namespace
+            x: 1.0
+            y: 2.0
+            z: 0.0
+
+    marobot3:
+        desired_pose: #namespace
+            x: 4.5
+            y: 3.5
+            z: 0.0
+
+    obstacle1:
+        obstacle_pose: #namespace
+            x: 0
+            y: 0
+
+    obstacle2:
+        obstacle_pose: #namespace
+            x: 0.0
+            y: 0.0
+
+    obstacle3:
+        obstacle_pose: #namespace
+            x: 0
+            y: 0
+#    forwards_reward: 3  # Points Given to go forwards
+#    turn_reward: 1 # Points Given to turn as action
+#    end_episode_points: 200 # Points given when ending an episode
+    
+
+
