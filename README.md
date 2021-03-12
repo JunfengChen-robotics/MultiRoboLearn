@@ -14,6 +14,9 @@
 
 **Test mode in both simulation and real world for multi-dqn algorithm**
 
+
+**Note:** The whole structure of this framework and tranining process and test process can be obtained in this [**vedio**](https://github.com/JunfengChen-robotics/MultiRoboLearn/blob/main/MultiRoboLearn.mp4).
+
 # Main Features
 - It mainly focus on multi-robot system. It provides the community with an open-source framework for MADRL simulations and their corresponding deployment on real robots. 
 - It can be used in continous and discrete action space
